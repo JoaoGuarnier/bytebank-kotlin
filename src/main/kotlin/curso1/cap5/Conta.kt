@@ -1,18 +1,26 @@
-package cap3_4
+package curso1.cap5
 
-class Conta {
+class Conta(
+    val titular: String = "",
+    val numero: Int = 0,
+) {
 
-    var titular: String = ""
-    var numero: Int = 0
-    private var saldo: Double = 0.0
 
-    fun getSaldo(): Double {
-        return this.saldo
-    }
 
-    fun setSaldo(saldo: Double) {
-        this.saldo = saldo
-    }
+    var saldo: Double = 0.0
+        private set
+//        set(value) {
+//            if (value > 0) {
+//                field = value
+//            }
+//        }
+
+//    constructor(titular: String, numero: Int) {
+//        this.titular = titular
+//        this.numero = numero
+//    }
+//
+//    constructor()
 
 
     fun sacar(valor: Double) {
@@ -27,8 +35,11 @@ class Conta {
     }
 
     fun depositar(valor: Double) {
-        this.saldo += valor
-        println("Deposito realizado, saldo atual: ${this.saldo}")
+        if (valor > 0) {
+            this.saldo += valor
+            println("Deposito realizado, saldo atual: ${this.saldo}")
+        }
+
     }
 
     fun transferir(contaDestino: Conta, valor: Double): Boolean {
@@ -42,6 +53,7 @@ class Conta {
         println("Saldo insuficiente para transferencia")
         return false
     }
+
 
 
 }

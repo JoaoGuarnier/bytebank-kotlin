@@ -1,4 +1,4 @@
-package cap2
+package curso1.cap2
 
 fun main() {
 
